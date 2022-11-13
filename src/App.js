@@ -1,6 +1,7 @@
 // npm install --save chart.js react-chartjs-2
 import { Doughnut, Line, Bar } from "react-chartjs-2";
 import "chart.js/auto";
+import "./App.css";
 
 const data = {
   labels: ["הושלמו בהצלחה", "הושלמו עם בקשת עזרה", "לא הושלמו"],
@@ -60,32 +61,79 @@ const data3 = {
   ],
 };
 
+const labels4 = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+];
+const data4 = {
+  labels: labels4,
+  datasets: [
+    {
+      label: "שטיפת כלים",
+      data: [65, 59, 80, 81, 56, 55, 40],
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+        "rgba(255, 205, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(201, 203, 207, 0.2)",
+      ],
+      borderColor: [
+        "rgb(255, 99, 132)",
+        "rgb(255, 159, 64)",
+        "rgb(255, 205, 86)",
+        "rgb(75, 192, 192)",
+        "rgb(54, 162, 235)",
+        "rgb(153, 102, 255)",
+        "rgb(201, 203, 207)",
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
+
 function App() {
   return (
     <div className="App">
-      <div
-        style={{ display: "flex", flexDirection: "row" }}
-        className="firstRowCharts"
-      >
+      <div className="firstRowCharts">
         <div
-          style={{ width: "500px", height: "500px" }}
+          style={{ width: "500px", height: "350px" }}
           className="doughnutDashboard"
         >
           <Doughnut data={data} />
         </div>
         <div
-          style={{ width: "650px", height: "650px" }}
-          className="LineChartDashboard"
+          style={{
+            width: "650px",
+            height: "350px",
+            position: "relative",
+            left: 0,
+          }}
+          className="lineChartDashboard"
         >
           <Line data={data2} />
         </div>
       </div>
-
-      <div
-        style={{ width: "500px", height: "500px" }}
-        className="doughnutDashboard"
-      >
-        <Bar data={data3} />
+      <div className="secondRowCharts">
+        <div
+          style={{ width: "650px", height: "350px" }}
+          className="barDashboard"
+        >
+          <Bar data={data3} />
+        </div>
+        <div
+          style={{ width: "650px", height: "350px" }}
+          className="bar2Dashboard"
+        >
+          <Bar data={data4} />
+        </div>
       </div>
     </div>
   );
